@@ -18,51 +18,51 @@ import org.pojomatic.annotations.AutoProperty;
 @AutoProperty
 public class User {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
 
-	@Column(unique = true, nullable = false)
-	private String email;
+    @Column(unique = true, nullable = false)
+    private String email;
 
-	@Column(nullable = false)
-	private String password;
+    @Column(nullable = false)
+    private String password;
 
     @ElementCollection
-	@Enumerated(EnumType.STRING)
-	private Set<Roles> roles;
+    @Enumerated(EnumType.STRING)
+    private Set<Roles> roles;
 
-	public User() {}
+    public User() {}
 
-	public User(String email, String password, Set<Roles> roles) {
-	    this.email = email;
-	    this.password = password;
-	    this.roles = roles;
-	}
+    public User(String email, String password, Set<Roles> roles) {
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
     public void setId(Long id) {
         this.id = id;
     }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-	    this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getPassword() {
-	    return password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public Set<Roles> getRoles() {
         return roles;

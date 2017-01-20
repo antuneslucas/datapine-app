@@ -12,22 +12,22 @@ import org.pojomatic.annotations.AutoProperty;
 @AutoProperty
 public class Item {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
 
-	@Column(nullable = false)
-	private String owner;
-	private String name;
-	private String description;
+    @Column(nullable = false)
+    private String owner;
+    private String name;
+    private String description;
 
-	public Item() {}
+    public Item() {}
 
-	public Item(String owner, String name, String description) {
-	    this.owner = owner;
-	    this.name = name;
-	    this.description = description;
-	}
+    public Item(String owner, String name, String description) {
+        this.owner = owner;
+        this.name = name;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
