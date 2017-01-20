@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Welcome</title>
+    </head>
+    <body>
+        <h1>Welcome!</h1>
+        <div>
+            <ul>
+                <li><a th:href="@{/login}">login</a></li>
+                <li><a th:href="@{/register}">register</a></li>
+                <li><a th:href="@{/users}">users list (must be logged as admin)</a></li>
+                <li><a th:href="@{/item/create}">create item (must be logged)</a></li>
+                <li><a th:href="@{/items}">items list (must be logged)</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

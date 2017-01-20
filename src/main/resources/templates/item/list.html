@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>List Item</title>
+    </head>
+    <body>
+        <h2>List Item</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Item id</td>
+                    <td>Item owner</td>
+                    <td>Item name</td>
+                    <td>Item description</td>
+                </tr>
+            </thead>
+            <tr data-th-each="item : ${items}">
+                <td data-th-text="${item.id}">...</td>
+                <td data-th-text="${item.owner}">...</td>
+                <td data-th-text="${item.name}">...</td>
+                <td data-th-text="${item.description}">...</td>
+            </tr>
+        </table>
+        <br />
+        <div><a th:href="@{/item/create}">create more items</a></div>
+    </body>
+</html>

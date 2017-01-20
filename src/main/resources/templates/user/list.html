@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>List Users</title>
+    </head>
+    <body>
+        <h2>List Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>User id</td>
+                    <td>User email</td>
+                </tr>
+            </thead>
+            <tr data-th-each="user : ${users}">
+                <td data-th-text="${user.id}">...</td>
+                <td data-th-text="${user.email}">...</td>
+            </tr>
+        </table>
+    </body>
+</html>
