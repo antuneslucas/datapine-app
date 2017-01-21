@@ -14,7 +14,7 @@ import org.springframework.security.acls.model.Permission;
 import org.springframework.security.acls.model.Sid;
 import org.springframework.stereotype.Service;
 
-import com.datapine.domain.Item;
+import com.datapine.domain.Identifiable;
 import com.datapine.service.AclSecurityService;
 import com.datapine.util.ContextUtil;
 
@@ -24,14 +24,14 @@ public class AclSecurityServiceImpl implements AclSecurityService {
     @Autowired private MutableAclService mutableAclService;
 
     @Override
-    public void setPermission(Item item) {
-        addPermission(item, new PrincipalSid(ContextUtil.getUserEmail()), BasePermission.WRITE, Item.class);
-        addPermission(item, new GrantedAuthoritySid("ROLE_ADMIN"), BasePermission.ADMINISTRATION, Item.class);
+    public void setPermission(Identifiable<?> obj) {
+        addPermission(obj, new PrincipalSid(ContextUtil.getUserEmail()), BasePermission.WRITE);
+        addPermission(obj, new GrantedAuthoritySid("ROLE_ADMIN"), BasePermission.ADMINISTRATION);
     }
 
-    private void addPermission(Item item, Sid sid, Permission permission, Class<?> clazz) {
+    private void addPermission(Identifiable<?> obj, Sid sid, Permission permission) {
+        ObjectIdentity oid = new ObjectIdentityImpl(obj.getClass().getCanonicalName(), obj.getId());
         MutableAcl acl;
-        ObjectIdentity oid = new ObjectIdentityImpl(clazz.getCanonicalName(), item.getId());
 
         try {
             acl = (MutableAcl) mutableAclService.readAclById(oid);

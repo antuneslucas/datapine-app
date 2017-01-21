@@ -1,9 +1,9 @@
 package com.datapine.service;
 
-import com.datapine.domain.Item;
+import com.datapine.domain.Identifiable;
 
 public interface AclSecurityService {
 
-    void setPermission(Item item);
+    void setPermission(Identifiable<?> obj);
 
 }

@@ -10,7 +10,7 @@ import org.pojomatic.annotations.AutoProperty;
 
 @Entity
 @AutoProperty
-public class Item {
+public class Item implements Identifiable<Long> {
 
     @Id
     @GeneratedValue
@@ -29,6 +29,7 @@ public class Item {
         this.description = description;
     }
 
+    @Override
     public Long getId() {
         return id;
     }
